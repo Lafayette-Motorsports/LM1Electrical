@@ -1,0 +1,51 @@
+* ============================================================
+*  RELAY_SPDT.LIB
+*  Generic electromagnetic (magnetic) relay subcircuit for LTspice
+*  SPDT (Form C) contact arrangement: one common, one NO, one NC
+*
+*  Model behavior:
+*   - Coil branch = series R + L (realistic electrical load)
+*   - An RC "delay" network models the mechanical lag between coil
+*     energization and armature movement (operate/release time)
+*   - Two separate voltage-controlled switches (SW), each with its
+*     own hysteresis band, model NO (closes when energized) and
+*     NC (closed when de-energized, opens when energized)
+*
+*  Default parameters are typical for a small 12V signal relay
+*  (e.g. Omron G5V-2 / Songle SRD-12VDC-SL-C class part). Override
+*  any of them when you instantiate the subcircuit.
+* ============================================================
+
+.SUBCKT RELAY_SPDT COIL_A COIL_B COM NO NC
++ PARAMS:
++ RCOIL   = 400      ; coil resistance, ohms
++ LCOIL   = 100m     ; coil inductance, H
++ VPI     = 8         ; pull-in (operate) voltage, V
++ VDO     = 4         ; drop-out (release) voltage, V
++ TDELAY  = 5m        ; mechanical operate/release time constant, s
++ RON     = 0.05      ; closed-contact resistance, ohms
++ ROFF    = 1MEG      ; open-contact resistance, ohms
+
+* ---- Coil (electrical) ----
+Lcoil  COIL_A  N1     {LCOIL}
+Rcoil  N1      COIL_B {RCOIL}
+
+* ---- Armature position sensing (adds mechanical delay) ----
+* This RC filter smooths the coil voltage so the contacts don't
+* snap instantly -- approximates real armature travel time.
+Rdly   COIL_A  SENSE  1k
+Cdly   SENSE   COIL_B {TDELAY/1k}
+
+* ---- Contact switches ----
+* NO: closes when sensed coil voltage rises above threshold+hysteresis.
+* NC: mirror-image threshold, so it is CLOSED at 0V (idle) and
+*     opens once the coil voltage exceeds VPI -- fixed vs. the
+*     original version, which shared NO's positive-only threshold
+*     and could never actually close.
+S_NO  COM  NO  SENSE   COIL_B  RELAY_SW_NO
+S_NC  COM  NC  COIL_B  SENSE   RELAY_SW_NC
+
+.model RELAY_SW_NO SW(Ron={RON} Roff={ROFF} Vt={(VPI+VDO)/2}  Vh={(VPI-VDO)/2})
+.model RELAY_SW_NC SW(Ron={RON} Roff={ROFF} Vt={-(VPI+VDO)/2} Vh={(VPI-VDO)/2})
+
+.ENDS RELAY_SPDT

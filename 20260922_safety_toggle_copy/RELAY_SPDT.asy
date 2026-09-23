@@ -1,0 +1,26 @@
+Version 4
+SymbolType CELL
+LINE Normal -144 -64 144 -64
+LINE Normal 144 -64 144 64
+LINE Normal 144 64 -144 64
+LINE Normal -144 64 -144 -64
+TEXT 0 -80 Center 1 RELAY
+PIN -144 -32 LEFT 48
+PINATTR PinName COM
+PINATTR SpiceOrder 3
+PIN -144 32 LEFT 48
+PINATTR PinName COIL_A
+PINATTR SpiceOrder 1
+PIN 144 -32 RIGHT 48
+PINATTR PinName NO
+PINATTR SpiceOrder 4
+PIN 144 0 RIGHT 48
+PINATTR PinName NC
+PINATTR SpiceOrder 5
+PIN 144 32 RIGHT 48
+PINATTR PinName COIL_B
+PINATTR SpiceOrder 2
+SYMATTR Prefix X
+SYMATTR SpiceModel RELAY_SPDT
+SYMATTR Value RELAY_SPDT
+SYMATTR Description Generic SPDT magnetic relay (coil + hysteresis contact model)
