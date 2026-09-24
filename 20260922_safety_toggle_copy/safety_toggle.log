@@ -1,0 +1,24 @@
+LTspice 24.1.2 for Windows
+Circuit: C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net
+Start Time: Thu Sep 24 16:55:01 2026
+C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net(7): Sub-circuit name listed twice. This is most likely because the corresponding symbol contains the name in more than one attribute.
+X§U1 uh_oh 0 input output N001 RELAY_SPDT RELAY_SPDT
+                                         ^^^^^^^^^^^
+C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net(8): Sub-circuit name listed twice. This is most likely because the corresponding symbol contains the name in more than one attribute.
+X§U2 uh_oh 0 N002 uh_oh N006 RELAY_SPDT RELAY_SPDT
+                                       ^^^^^^^^^^^
+solver = Normal
+Maximum thread count: 32
+tnom = 27
+temp = 27
+method = trap
+WARNING: Node n005 is floating.
+WARNING: Node n003 is floating.
+
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.047 seconds.
+
+Files loaded:
+C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net
+C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\relay.lib
+
