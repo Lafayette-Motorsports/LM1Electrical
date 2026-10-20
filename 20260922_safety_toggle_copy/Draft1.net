@@ -1,0 +1,13 @@
+*
+V1 N003 0 PULSE(0 5 0 0 0 90u 100u)
+R1 N003 N002 1k
+C1 N002 0 10µ
+V2 N001 0 12
+X§U2 N002 OUT N001 0 OUT LT1013 ;§pnba In+)In-)V+)V-)OUT
+.tran 0 100m 0 100n
+.meas TRAN vavg AVG V(n002) FROM=60m TO=100m
+.meas TRAN vpp PP V(n002) FROM=60m TO=100m
+* Library below included based on ModelFile attribute of instance X§U2 (C:\users\crossover\AppData\Local\LTspice\lib\sym\OpAmps\LT1013.asy)
+.lib LT1013.sub
+.backanno
+.end

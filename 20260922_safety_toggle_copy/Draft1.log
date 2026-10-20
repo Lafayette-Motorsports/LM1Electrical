@@ -1,0 +1,25 @@
+LTspice 26.0.2 for MacOS
+Circuit: /Users/kylelubanski/Downloads/apps/GitHub/LM1Electrical/20260922_safety_toggle_copy/Draft1.net
+Start Time: Wed Oct  7 10:45:53 2026
+solver = Normal
+Maximum thread count: 14
+tnom = 27
+temp = 27
+method = trap
+Y:\Downloads\apps\GitHub\LM1Electrical\20260922_safety_toggle_copy\Draft1.net(2): Limiting rise time to 1e-06.
+
+V1 N003 0 PULSE(0 5 0 0 0 90u 100u)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Y:\Downloads\apps\GitHub\LM1Electrical\20260922_safety_toggle_copy\Draft1.net(2): Limiting fall time to 1e-06.
+
+V1 N003 0 PULSE(0 5 0 0 0 90u 100u)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 8.706 seconds.
+
+Files loaded:
+/Users/kylelubanski/Downloads/apps/GitHub/LM1Electrical/20260922_safety_toggle_copy/Draft1.net
+/Users/kylelubanski/Library/Application Support/LTspice/Bottles/ltspice/drive_c/users/crossover/AppData/Local/LTspice/lib/sub/LT1013.sub
+
+vavg: AVG(V(n002) )=4.547245318 FROM 0.06 TO 0.1
+vpp: PP(V(n002) )=0.0151200294495 FROM 0.06 TO 0.1
