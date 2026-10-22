@@ -1,24 +1,25 @@
-LTspice 24.1.2 for Windows
-Circuit: C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net
-Start Time: Thu Sep 24 16:55:01 2026
-C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net(7): Sub-circuit name listed twice. This is most likely because the corresponding symbol contains the name in more than one attribute.
-X§U1 uh_oh 0 input output N001 RELAY_SPDT RELAY_SPDT
-                                         ^^^^^^^^^^^
-C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net(8): Sub-circuit name listed twice. This is most likely because the corresponding symbol contains the name in more than one attribute.
-X§U2 uh_oh 0 N002 uh_oh N006 RELAY_SPDT RELAY_SPDT
-                                       ^^^^^^^^^^^
+LTspice 26.0.2 for MacOS
+Circuit: /Users/kylelubanski/Downloads/lafayette/ev/ev_github/LM1Electrical/20260922_safety_toggle_copy/safety_toggle.net
+Start Time: Thu Oct 22 16:39:00 2026
+Y:\Downloads\lafayette\ev\ev_github\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net(8): Sub-circuit name listed twice. This is most likely because the corresponding symbol contains the name in more than one attribute.
+X§U1 uh_oh 0 input output N001 RELAY_SPDT RELAY_SPDT ;§pnba COIL_A)COIL_B)COM)NO)NC
+                                          ^^^^^^^^^^
+Y:\Downloads\lafayette\ev\ev_github\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net(9): Sub-circuit name listed twice. This is most likely because the corresponding symbol contains the name in more than one attribute.
+X§U2 uh_oh 0 N002 N006 N007 RELAY_SPDT RELAY_SPDT ;§pnba COIL_A)COIL_B)COM)NO)NC
+                                       ^^^^^^^^^^
 solver = Normal
-Maximum thread count: 32
+Maximum thread count: 14
 tnom = 27
 temp = 27
 method = trap
 WARNING: Node n005 is floating.
 WARNING: Node n003 is floating.
 
-Direct Newton iteration for .op point succeeded.
-Total elapsed time: 0.047 seconds.
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 0.251 seconds.
 
 Files loaded:
-C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\safety_toggle.net
-C:\Developement\Motorsports\LM1Electrical\20260922_safety_toggle_copy\relay.lib
+/Users/kylelubanski/Downloads/lafayette/ev/ev_github/LM1Electrical/20260922_safety_toggle_copy/safety_toggle.net
+/Users/kylelubanski/Library/Application Support/LTspice/Bottles/ltspice/drive_c/users/crossover/AppData/Local/LTspice/lib/cmp/standard.dio
+/Users/kylelubanski/Downloads/lafayette/ev/ev_github/LM1Electrical/20260922_safety_toggle_copy/relay.lib
 
