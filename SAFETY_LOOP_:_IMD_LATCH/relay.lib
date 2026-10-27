@@ -1,0 +1,18 @@
+* Port order follows the two columns of the requested box.
+.subckt RELAY_SPDT COM COIL_START NC NO COIL_END
++ params: RCOIL=720 LCOIL=0.2 IPICK=0.012 IDROP=0.010 TMECH=0.005 RON=0.05 ROFF=1000000
+* Zero-volt source senses actual coil current without extra resistance.
+Vcoil COIL_START winding 0
+Lcoil winding copper {LCOIL}
+Rcoil copper COIL_END {RCOIL}
+* Current magnitude supports either coil polarity. The 5ms mechanical
+* setting is approximated by a first-order armature response, not an
+* exact reproduction of the Falstad mechanical solver.
+Bmag drive 0 V=abs(I(Vcoil))
+Rmech drive sense 1k
+Cmech sense 0 {TMECH/1k}
+SNO COM NO sense 0 CONTACT_NO
+SNC COM NC 0 sense CONTACT_NC
+.model CONTACT_NO SW(Ron={RON} Roff={ROFF} Vt={(IPICK+IDROP)/2} Vh={(IPICK-IDROP)/2})
+.model CONTACT_NC SW(Ron={RON} Roff={ROFF} Vt={-(IPICK+IDROP)/2} Vh={(IPICK-IDROP)/2})
+.ends RELAY_SPDT

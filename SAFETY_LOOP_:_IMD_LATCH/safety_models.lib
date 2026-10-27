@@ -1,0 +1,12 @@
+* Simulation controls replace Falstad's clickable SPST switches.
+.subckt SW_CTRL A B CTRL
+S1 A B CTRL 0 MANUAL_SW
+.model MANUAL_SW SW(Ron=0.01 Roff=1G Vt=0.5 Vh=0.1)
+.ends SW_CTRL
+* Generic, not manufacturer-specific semiconductor models.
+* MOSFET Kp=0.02 and Vto=1.5 give the approximately 0.195V drain
+* voltage / 16.4mA per coil in the supplied Falstad running snapshot.
+.model NFET_GLV NMOS(Vto=1.5 Kp=0.02 Lambda=0)
+* Diode and red LED models retained from the newer LTspice reference.
+.model D_FLY D(Is=1n Rs=0.5 N=1.8 Cjo=4p Bv=100)
+.model LED_RED D(Is=93.1p Rs=42 N=3.73 Cjo=2.97p M=0.333 tt=4.32u)

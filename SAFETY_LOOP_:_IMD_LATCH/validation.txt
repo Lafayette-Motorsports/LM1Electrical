@@ -1,0 +1,16 @@
+LTspice 26.0.2 batch verification - 2026-10-27
+
+Final ASC successfully generated a netlist and completed a 4 s transient simulation.
+No warnings or errors in the simulation log.
+Relay pin ordering, parallel coils, MOSFET D/G/S, diode polarity, and 47k pull-down checked in LTspice-generated netlist.
+
+Time(s) | State | Safety loop(V) | Gate(V) | Coil current(mA/relay)*
+0.25 | Before reset | 0.011988 | 0.449331 | 0.000000
+1.00 | Latched after reset | 11.999400 | 9.999988 | 16.395653
+2.50 | OKHS fault | 0.011988 | 0.000470 | 0.000000
+3.25 | OKHS restored, awaiting reset | 0.011988 | 0.449331 | 0.000000
+3.80 | Latched after second reset | 11.999400 | 9.999988 | 16.395653
+
+* Coil current calculated from steady-state coil voltage / 720 ohms.
+Preview is rendered from ASC and ASY geometry, not an LTspice UI screenshot.
+Verification covers model behavior, not physical hardware qualification.
